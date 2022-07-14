@@ -45,3 +45,7 @@ body {
     height: 550px;
     width: 100%;
 }
+
+.foto img {
+    width: 400px;
+}
