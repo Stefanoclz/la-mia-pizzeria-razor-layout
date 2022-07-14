@@ -37,3 +37,11 @@ body {
     transform:scale(1.1);
     cursor: pointer;
 }
+
+.jumbo {
+    background-image: url("https://img.freepik.com/premium-vector/black-white-doodle-background-pizzeria-theme_300579-540.jpg?w=2000");
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    width: 100%;
+}
