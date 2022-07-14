@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+
+    Pizza margherita = new Pizza("Margherita", "Pizza classica con pomodoro, mozzarella e basilico", "https://www.finedininglovers.it/sites/g/files/xknfdk1106/files/styles/recipes_1200_800_fallback/public/fdl_content_import_it/margherita-50kalo.jpg?itok=v9nHxNMS", (decimal)6.50, 1);
+    Pizza boscaiola = new Pizza("Boscaiola", "Pizza a base bianca con funghi champignon e salsiccia", "https://3punto0express.com/wp-content/uploads/2020/03/boscaiola.jpg", (decimal)7.50, 2);
+    Pizza crostino = new Pizza("Crostino", "Pizza particolare, con prosciutto cotto ed una strato di mozzarella cotta sopra a formare una copertura di crosta", "https://www.alfaforni.com/wp-content/uploads/2020/05/pizza-crostino-cotto-e-mozzarella-alfa-forni.jpg", (decimal)7.00, 3);
+    Pizza diavola = new Pizza("Diavola", "Pizza con base pomodoro, mozzarella a cubetti, salame piccante e guarnizione con olio e origano, perfetta per chi ama il piccante con moderazione", "https://www.dottorpeperoncino.com/img_news/big/54.jpg", (decimal)8.50, 4);
+    Pizza quattroFor = new Pizza("Quattro formaggi", "Pizza con mozzarella, gorgonzola, fontina, parmiggiano reggiano e pepe", "https://www.unmondodisapori.it/wp-content/uploads/2017/10/4formaggi.jpg", (decimal)8.00, 5);
+    Pizza capricciosa = new Pizza("Capricciosa", "Pizza con pomodoro, mozzarella, prosciutto, olive,funghi,capperi e carciofini", "https://cdn.ilclubdellericette.it/wp-content/uploads/2020/07/pizza-capricciosa-1280x720.jpg", (decimal)9.00, 6);
+    Pizza bismarck = new Pizza("Alla Bismarck", "Pizza con pomodoro, mozzarella, asparagi e uovo", "https://static.cookist.it/wp-content/uploads/sites/21/2021/05/Pizza-alla-Bismarck.jpg", (decimal)8.50, 7);
+
+    List<Pizza> listaPizze = new List<Pizza>();
+    listaPizze.Add(margherita);
+    listaPizze.Add(boscaiola);
+    listaPizze.Add(crostino);
+    listaPizze.Add(diavola);
+    listaPizze.Add(quattroFor);
+    listaPizze.Add(capricciosa);
+    listaPizze.Add(bismarck);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - la_mia_pizzeria_static</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/la_mia_pizzeria_static.styles.css" asp-append-version="true" />
+</head>
+<header class="row">
+    <h3 class="col-12 text-center my-4">
+        Benvenuti! Ecco l'elenco delle pizze nel nostro menù'
+    </h3>
+</header>
+<body class="bg_grey">
+    <div class="container">
+        <div class="row gx-2">
+            @foreach(Pizza pizza in listaPizze)
+            {
+                <div class="col-4 text-center card align-items-center justify-content-center">
+                    <img src=@pizza.fotoLink class="w-100 h-50"/>
+                    <h2>@pizza.name</h2>
+                    <p>@pizza.description</p>
+                    <p><strong>Prezzo: </strong>@pizza.prezzo</p>
+                    <p><a href="/Pizze/Details/@pizza.id">Dettagli</a><p>
+                </div>
+            }
+        </div>
+    </div>
+
+</body>
